@@ -51,7 +51,7 @@ export default function InspirationCard() {
         Inspiration
       </h2>
 
-      <Card className="p-8 flex flex-col justify-center min-h-[160px] max-w-xl">
+      <Card className="p-8 flex flex-col justify-center min-h-[160px]">
         <div className="inspiration-fade" style={{ opacity: visible ? 1 : 0 }}>
           {item.kind === 'quote' ? (
             <>

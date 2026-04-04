@@ -18,7 +18,7 @@ export default function PomodoroTimer() {
         Pomodoro Timer
       </h2>
 
-      <Card className="p-6 md:p-10 max-w-xl mx-auto">
+      <Card className="p-6 md:p-10">
         {/* Mode segmented control */}
         <ModeSelector onModeChange={changeMode} />
 
