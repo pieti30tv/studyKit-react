@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Reset & Base ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  background-color: #f5f5f7;
+  color: #1d1d1f;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+               "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+#root {
+  width: 100%;
+  min-height: 100svh;
+}
+
+/* ─── Timer Display ──────────────────────────────────────────────── */
+.timer-digit {
+  font-weight: 200;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+/* ─── Modal Animations ───────────────────────────────────────────── */
+.modal-backdrop {
+  animation: fadeIn 0.2s ease forwards;
+}
+
+.modal-body {
+  animation: slideUp 0.25s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* ─── Mobile Menu ────────────────────────────────────────────────── */
+.mobile-menu-open {
+  animation: menuSlideDown 0.25s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+@keyframes menuSlideDown {
+  from { transform: translateY(-8px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* ─── Toast Animations ───────────────────────────────────────────── */
+.toast-enter {
+  animation: toastSlideUp 0.3s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+.toast-exit {
+  animation: toastFadeOut 0.2s ease forwards;
+}
+
+@keyframes toastSlideUp {
+  from { transform: translateY(12px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@keyframes toastFadeOut {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(0.96); }
+}
+
+/* ─── Inspiration Card Fade ──────────────────────────────────────── */
+.inspiration-fade {
+  transition: opacity 0.5s ease;
+}
+
+/* ─── Custom Checkbox ────────────────────────────────────────────── */
+.task-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border-radius: 50%;
+  border: 2px solid #d2d2d7;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 150ms ease, border-color 150ms ease;
+  flex-shrink: 0;
+}
+
+.task-checkbox:checked {
+  background-color: #0066cc;
+  border-color: #0066cc;
+}
+
+.task-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 6px;
+  width: 5px;
+  height: 9px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+.task-checkbox:focus-visible {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+/* ─── Hamburger to X ─────────────────────────────────────────────── */
+.hamburger-line {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background-color: #1d1d1f;
+  border-radius: 2px;
+  transition: transform 300ms ease, opacity 300ms ease;
+  transform-origin: center;
+}
+
+.hamburger-open .hamburger-line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger-open .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger-open .hamburger-line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ─── Segmented Control ──────────────────────────────────────────── */
+.mode-segment-active {
+  background-color: #0066cc;
+  color: #ffffff;
+}
+
+.mode-segment-inactive {
+  background-color: transparent;
+  color: #6e6e73;
+}
+
+/* ─── Focus Ring ─────────────────────────────────────────────────── */
+.apple-focus:focus-visible {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+/* ─── Scrollbar (optional, WebKit) ──────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d2d2d7;
+  border-radius: 3px;
+}
