@@ -23,12 +23,13 @@ export default function Statistics() {
 
   return (
     <section id="statistik" className="scroll-mt-20">
-      <h2 className="text-2xl font-semibold text-apple-heading tracking-tight mb-2">
+      <h2 className="text-3xl font-semibold text-apple-heading tracking-tight mb-2">
         Statistik
       </h2>
-      <p className="text-sm text-apple-secondary mb-6">Heute</p>
+      <p className="text-sm text-apple-secondary mb-6">Heutige Übersicht</p>
 
-      <div className="grid grid-cols-1 gap-4">
+      {/* 1 col on mobile, 3 cols on md+ */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <StatCard
           value={stats.completedTasksToday ?? 0}
           label="Erledigte Aufgaben"
@@ -36,12 +37,12 @@ export default function Statistics() {
         />
         <StatCard
           value={stats.pomodorosToday ?? 0}
-          label="Pomodoros"
+          label="Pomodoros abgeschlossen"
           emoji="🍅"
         />
         <StatCard
           value={stats.focusMinutesToday ?? 0}
-          label="Fokusminuten"
+          label="Fokusminuten heute"
           emoji="⏱️"
         />
       </div>
