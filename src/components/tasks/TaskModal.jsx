@@ -105,6 +105,7 @@ export default function TaskModal({ isOpen, onClose, onSubmit }) {
             type="date"
             value={form.deadline}
             onChange={set('deadline')}
+            className="!w-auto"
           />
 
           <Input
